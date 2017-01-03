@@ -1,4 +1,8 @@
-<h1>Listing Pins</h1>
+<h1 style="display: inline;">Listing Pins</h1>
+<% if user_signed_in? %>
+  <%= link_to 'New Pin', new_pin_path, :class => 'btn btn-default' %>
+<% end  %>
+
 <div id="container">
   <% @pins.each do |pin| %>
     <div class="item", style="width: 25%;">
@@ -16,11 +20,6 @@
       </div>
     </div>
   <% end %>
-
-  <br>
-  <% if user_signed_in? %>
-    <%= link_to 'New Pin', new_pin_path %>
-  <% end  %>
 </div>
 
 <script type="text/javascript">

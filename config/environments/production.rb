@@ -46,6 +46,9 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
+  # Set to :debug to see everything in the log.
+  # config.log_level = :info
+  # config.log_level = :warn
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
