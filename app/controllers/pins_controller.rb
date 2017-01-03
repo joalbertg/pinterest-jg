@@ -1,5 +1,6 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :create, :destroy, :mypins]
 
   # GET /pins
   # GET /pins.json
@@ -59,6 +60,15 @@ class PinsController < ApplicationController
       format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mypins
+    @pins = current_user.pins
+  end
+
+  def pinsof
+    user_id = params[:user_id]
+    @pins = User.find(user_id).pins
   end
 
   private

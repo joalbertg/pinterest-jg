@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
   resources :pins
   get 'welcome/index'
 
@@ -7,6 +10,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get 'mypins' => 'pins#mypins'
+  get 'pinsof/:user_id' => 'pins#pinsof', as: :pinsof
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

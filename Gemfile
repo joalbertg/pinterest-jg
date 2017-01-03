@@ -51,3 +51,13 @@ group :production do
   #Rails 12factor for Heroku: https://github.com/heroku/rails_12factor
   gem 'rails_12factor'
 end
+
+gem 'devise', '~> 4.2'
+
+#para que no salgan las peticiones de precompilado assets en la consola
+gem 'quiet_assets', '~> 1.1', :group => :development
+
+gem 'pry-byebug', '~> 3.4', '>= 3.4.2', group: :development
+gem 'awesome_print', '~> 1.7', :group => :development
+
+gem 'activeadmin', '~> 1.0.0.pre4'
